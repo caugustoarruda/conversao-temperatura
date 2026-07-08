@@ -1,6 +1,6 @@
-FROM ubuntu
-RUN apt update && apt install nodejs npm --yes
+FROM node:20.9.0-alpine3.18
 WORKDIR /app
-COPY . .
+COPY package*.json .
 RUN npm install
+COPY . .
 ENTRYPOINT [ "node", "server.js" ]
